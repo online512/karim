@@ -1,0 +1,427 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>KARIM LALA | Elite Sports Community</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Inter',sans-serif;
+background:#030814;
+overflow:hidden;
+height:100vh;
+color:white;
+}
+
+.bg{
+position:fixed;
+inset:0;
+background:
+radial-gradient(circle at 20% 20%, rgba(0,195,255,.18), transparent 40%),
+radial-gradient(circle at 80% 30%, rgba(0,120,255,.15), transparent 40%),
+radial-gradient(circle at 50% 90%, rgba(255,255,255,.05), transparent 50%),
+#030814;
+z-index:-2;
+}
+
+.grid{
+position:fixed;
+inset:0;
+background-image:
+linear-gradient(rgba(79,209,255,.04) 1px, transparent 1px),
+linear-gradient(90deg, rgba(79,209,255,.04) 1px, transparent 1px);
+background-size:30px 30px;
+animation:gridMove 15s linear infinite;
+z-index:-1;
+}
+
+@keyframes gridMove{
+0%{transform:translateY(0);}
+100%{transform:translateY(30px);}
+}
+
+.container{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:16px;
+}
+
+.card{
+width:100%;
+max-width:420px;
+background:rgba(255,255,255,.05);
+backdrop-filter:blur(30px);
+border:1px solid rgba(79,209,255,.18);
+border-radius:30px;
+padding:20px;
+box-shadow:0 0 60px rgba(79,209,255,.15);
+position:relative;
+overflow:hidden;
+}
+
+.card::before{
+content:'';
+position:absolute;
+top:-120px;
+left:-120px;
+width:240px;
+height:240px;
+background:radial-gradient(circle,rgba(79,209,255,.30),transparent);
+animation:rotateGlow 12s linear infinite;
+}
+
+@keyframes rotateGlow{
+100%{transform:rotate(360deg);}
+}
+
+.logo-wrap{
+display:flex;
+justify-content:center;
+margin-bottom:12px;
+}
+
+.logo{
+width:92px;
+height:92px;
+border-radius:50%;
+border:3px solid #4FD1FF;
+padding:4px;
+object-fit:cover;
+background:#08111f;
+animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+0%{
+box-shadow:0 0 0 rgba(79,209,255,.3);
+}
+50%{
+box-shadow:0 0 35px rgba(79,209,255,.9);
+}
+100%{
+box-shadow:0 0 0 rgba(79,209,255,.3);
+}
+}
+
+.badge{
+display:flex;
+justify-content:center;
+margin-bottom:10px;
+}
+
+.badge span{
+background:rgba(79,209,255,.12);
+border:1px solid rgba(79,209,255,.25);
+padding:7px 15px;
+border-radius:999px;
+font-size:11px;
+font-weight:700;
+color:#4FD1FF;
+}
+
+h1{
+font-family:'Orbitron',sans-serif;
+font-size:28px;
+text-align:center;
+line-height:1.2;
+margin-bottom:8px;
+}
+
+.highlight{
+color:#4FD1FF;
+}
+
+.sub{
+text-align:center;
+font-size:13px;
+opacity:.85;
+margin-bottom:20px;
+}
+
+.live-box{
+display:flex;
+gap:10px;
+margin-bottom:18px;
+}
+
+.live{
+flex:1;
+background:rgba(255,255,255,.03);
+border:1px solid rgba(79,209,255,.12);
+padding:10px;
+border-radius:16px;
+text-align:center;
+}
+
+.live h3{
+font-size:18px;
+color:#4FD1FF;
+margin-bottom:3px;
+}
+
+.live p{
+font-size:10px;
+opacity:.75;
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:10px;
+margin-bottom:18px;
+}
+
+.stat{
+background:rgba(255,255,255,.03);
+border:1px solid rgba(79,209,255,.10);
+padding:12px 8px;
+border-radius:16px;
+text-align:center;
+}
+
+.stat strong{
+display:block;
+font-size:18px;
+color:#4FD1FF;
+}
+
+.stat span{
+font-size:10px;
+opacity:.75;
+}
+
+.activity{
+background:rgba(255,255,255,.03);
+border:1px solid rgba(79,209,255,.10);
+padding:14px;
+border-radius:18px;
+margin-bottom:18px;
+}
+
+.activity-title{
+font-size:12px;
+margin-bottom:12px;
+}
+
+.equalizer{
+display:flex;
+justify-content:space-between;
+align-items:flex-end;
+height:55px;
+}
+
+.bar{
+width:12px;
+border-radius:20px;
+background:linear-gradient(to top,#00AFFF,#B8F4FF);
+animation:wave 1.4s infinite ease-in-out;
+}
+
+.bar:nth-child(2){animation-delay:.2s;}
+.bar:nth-child(3){animation-delay:.4s;}
+.bar:nth-child(4){animation-delay:.6s;}
+.bar:nth-child(5){animation-delay:.8s;}
+.bar:nth-child(6){animation-delay:1s;}
+
+@keyframes wave{
+0%,100%{height:15px;}
+50%{height:55px;}
+}
+
+.cta{
+display:block;
+width:100%;
+text-align:center;
+padding:18px;
+border-radius:18px;
+text-decoration:none;
+font-weight:800;
+font-size:15px;
+background:linear-gradient(135deg,#00D9FF,#007BFF);
+color:white;
+box-shadow:0 0 35px rgba(0,180,255,.45);
+transition:.3s;
+margin-bottom:12px;
+}
+
+.cta:hover{
+transform:translateY(-3px) scale(1.02);
+}
+
+.cta span{
+display:block;
+font-size:11px;
+font-weight:600;
+margin-top:4px;
+opacity:.95;
+}
+
+.footer{
+text-align:center;
+font-size:10px;
+opacity:.6;
+}
+
+.live-indicator{
+position:absolute;
+top:16px;
+right:16px;
+display:flex;
+align-items:center;
+gap:6px;
+font-size:11px;
+font-weight:700;
+color:#71FF9B;
+}
+
+.live-dot{
+width:8px;
+height:8px;
+border-radius:50%;
+background:#71FF9B;
+animation:blink 1s infinite;
+}
+
+@keyframes blink{
+50%{opacity:.25;}
+}
+</style>
+ <!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1243762398826748');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1243762398826748&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+</head>
+
+<body>
+
+<div class="bg"></div>
+<div class="grid"></div>
+
+<div class="container">
+
+<div class="card">
+
+<div class="live-indicator">
+<div class="live-dot"></div>
+LIVE
+</div>
+
+<div class="logo-wrap">
+<img src="https://raw.githubusercontent.com/online512/harshad00/a1f546c3b2966590063101a0bb0c44dbfce5bac9/photo_2026-08-29_21-56-24.jpg" class="logo" alt="Logo">
+</div>
+
+<div class="badge">
+<span>⚡ PREMIUM SPORTS COMMUNITY</span>
+</div>
+
+<h1> <span class="highlight">KARIM LALA</span></h1>
+
+<p class="sub">
+Cricket Trading Community
+</p>
+
+<div class="live-box">
+
+<div class="live">
+<h3 id="members">11K+</h3>
+<p>Active Members</p>
+</div>
+
+<div class="live">
+<h3>95%</h3>
+<p>Accuracy</p>
+</div>
+
+<div class="live">
+<h3>97%</h3>
+<p>Success Rate</p>
+</div>
+
+</div>
+
+<div class="stats">
+
+<div class="stat">
+<strong>11+</strong>
+<span>Years Trust</span>
+</div>
+
+<div class="stat">
+<strong>24×7</strong>
+<span>Live Updates</span>
+</div>
+
+<div class="stat">
+<strong>VIP</strong>
+<span>Access</span>
+</div>
+
+</div>
+
+<div class="activity">
+
+<div class="activity-title">
+📈 Community Activity
+</div>
+
+<div class="equalizer">
+<div class="bar"></div>
+<div class="bar"></div>
+<div class="bar"></div>
+<div class="bar"></div>
+<div class="bar"></div>
+<div class="bar"></div>
+</div>
+
+</div>
+
+<a href="https://t.me/+cEXJMJa40Gk2ZjE1" class="cta">
+🚀 JOIN TODAY'S VIP ROOM
+<span>Instant Access To Premium Community</span>
+</a>
+
+<div class="footer">
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+const members=document.getElementById("members");
+let count=35000;
+
+setInterval(()=>{
+count+=Math.floor(Math.random()*5);
+members.innerHTML=(count/1000).toFixed(1)+"K+";
+},2500);
+</script>
+
+</body>
+</html>
